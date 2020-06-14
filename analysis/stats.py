@@ -31,6 +31,10 @@ if __name__ == '__main__':
     print(stat)
     print(smallStat)
 
+    # print(np.sum(smallStat))
+
+    # print(np.amax(stat))
+
     # check if there is empty row
 
     # for i in range(len(stat)):
@@ -40,12 +44,32 @@ if __name__ == '__main__':
     
     # find classes
     
-    fullClasses = parseClasses(stat)
-    print('there are ', len(fullClasses), ' classes')
+    # fullClasses = parseClasses(stat)
+    # print('there are ', len(fullClasses), ' classes')
 
-    realClasses = parseClasses(stat[:-1, :-1])
-    print('there are ', len(realClasses), ' classes')
+    # realClasses = parseClasses(stat[:-1, :-1])
+    # print('there are ', len(realClasses), ' classes')
 
     # export
 
     # json.dump(stat, open('./data/export/stat.json', "w"))
+
+    # transition
+    import scipy.linalg as la
+    trans = stat/(stat.sum(axis=1)[:,None])
+    eigvals, eigvecs = la.eig(trans, left=True, right=False)
+
+    print(eigvecs[:, 0][60])
+
+    eigenvec = np.real(eigvecs[:, 0]) / np.sum(np.real(eigvecs[:, 0]))
+    
+    for i, j in sorted(enumerate(eigenvec), key=lambda x: -x[1]):
+        if (i == 80):
+            print('empty', round(j * 100, 2), '%')
+            continue
+        sender = 'Jueiyin' if i < 40 else 'others'
+        categoryId = i if sender == 'Jueiyin' else i - 40
+        category = stickerManager.categoryNames[categoryId]
+        print(i, sender, 'sends', category, round(j * 100, 2), '%')
+
+    # print(np.round(eigenvec, 3))

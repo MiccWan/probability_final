@@ -16,5 +16,10 @@ for fileName in listdir(messageRootPath):
             allMessages[name] = list(map(lambda m: Message(m), json.load(jsonFile)))[::-1]
 
 if __name__ == '__main__':
+    cnt = 0
     for key in allMessages:
         print(key, allMessages[key])
+        cnt += len(allMessages[key])
+
+    print(cnt)
+    

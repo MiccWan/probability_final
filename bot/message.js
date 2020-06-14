@@ -59,7 +59,7 @@ function handleMessage(api, message) {
       api.sendMessage({ sticker: responseStickerId }, message.threadID);
 
       // logging
-      logMessage(api, message.senderID, `sticker ${stickerId}`, `a unknown one!`);
+      logMessage(api, message.senderID, `sticker ${stickerId}`, `an unknown one!`);
     }
   }
   else if (isOthers) {
