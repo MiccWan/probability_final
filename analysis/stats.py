@@ -67,8 +67,8 @@ if __name__ == '__main__':
         if (i == 80):
             print('empty', round(j * 100, 2), '%')
             continue
-        sender = 'Jueiyin' if i < 40 else 'others'
-        categoryId = i if sender == 'Jueiyin' else i - 40
+        sender = 'User' if i < 40 else 'others'
+        categoryId = i if sender == 'User' else i - 40
         category = stickerManager.categoryNames[categoryId]
         print(i, sender, 'sends', category, round(j * 100, 2), '%')
 

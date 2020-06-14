@@ -10,10 +10,10 @@ canvas.height = size
 
 
 function draw(x, deep) {
-  const color = ((255 - Math.floor(Math.min(deep, 255))) / 2).toString(16);
-  // console.log((255 - Math.floor(deep)), color);
+  const color = (255 - Math.floor(Math.min(deep, 255))).toString(16);
+  console.log((255 - Math.floor(deep)), color);
 
-  ctx.fillStyle = '#' + color + '0000';
+  ctx.fillStyle = '#' + color + color + color;
   ctx.fillRect(x * size, 0, 30, 30);
 
   console.log(`filling (${0}, ${x * size}) with ${30}*${30} ${ctx.fillStyle}`)
