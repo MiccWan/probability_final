@@ -1,4 +1,4 @@
-const stickerManager = require('./StickerManager');
+const stickerManager = require('./stickerManager');
 const CONFIG = require('./config.json');
 const { randomPickIndexByDist, randomPickFrom } = require('./util/randomPick');
 

@@ -2,9 +2,9 @@ const readJSON = require('./util/readJSON');
 
 function StickerManager() {
   // init
-  this.stat = readJSON('data/export/stat.json');
-  this.categoryNames = readJSON('data/export/categoryNames.json');
-  this.stickerIdsByName = readJSON('data/export/stickerIdsByName.json');
+  this.stat = readJSON('./data/export/stat.json');
+  this.categoryNames = readJSON('./data/export/categoryNames.json');
+  this.stickerIdsByName = readJSON('./data/export/stickerIdsByName.json');
   this.n = this.categoryNames.length;
   this.categoryByStickerId = {};
   this.categoryIndexByName = {};
