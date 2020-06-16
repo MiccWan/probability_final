@@ -11,7 +11,9 @@ function logMessage(api, senderID, body, note) {
   api.getUserInfo(senderID, (err, userObj) => {
     if (err) console.error(err);
     const userName = userObj && userObj[senderID].name;
-    console.info(`Got ${body} from '${userName}', ${note}`);
+    const time = new Date();
+    const timeTag = `[${time.toLocaleTimeString('en-US', { hour12: false })}]`;
+    console.info(`${timeTag} Got ${body} from '${userName}', ${note}`);
   });
 }
 
