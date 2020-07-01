@@ -1,6 +1,6 @@
 # Probability Final: Facebook Sticker Bot using Markov Chain Analysis
 
-:warning: instruction is not dont yet
+:warning: instruction is not done yet
 
 ## Intro
 
